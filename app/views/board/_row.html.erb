@@ -1,0 +1,6 @@
+<% locals = { game_state: game_state, type: type } %>
+<div class="row">
+  <% row_data.each do |square_data| %>
+    <%= render(partial: "board/square", locals: locals.merge({ square_data: square_data })) %>
+  <% end %>
+</div>
