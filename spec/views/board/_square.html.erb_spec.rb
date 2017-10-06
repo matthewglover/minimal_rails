@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Rendering a square partial', type: :view do
   let(:game_state) do
     {
-      controller: :simple,
-      action: :index,
+      path: 'simple/index',
       player_x_type: :human,
       player_o_type: :human,
       moves: [1, 2]

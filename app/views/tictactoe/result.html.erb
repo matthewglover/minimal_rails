@@ -1,0 +1,20 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+  <div class="container">
+    <%= render(partial: 'board/board', locals: @options) %>
+    <div class="headline">
+      <% if @options[:winner] %>
+        <%= @options[:winner].upcase %> Wins!
+      <% else %>
+        It's a draw!
+      <% end %>
+    </div>
+    <div class="play_again">
+      <%= link_to "Play again", "/"  %>
+    </div>
+  </div>
+</body>
+</html>
