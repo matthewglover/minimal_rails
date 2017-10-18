@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'simple/index' => 'simple#index'
+  get 'tictactoe/game' => 'tictactoe#game'
+  get 'tictactoe/result' => 'tictactoe#result'
 end

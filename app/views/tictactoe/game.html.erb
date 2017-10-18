@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <%= render(partial: 'computer_move_refresh', 
+               locals: { game_state: @options[:game_state] }) if @options[:type] == :static %>
+  </head>
+<body>
+  <div class="container">
+    <%= render(partial: 'board/board', locals: @options) %>
+  </div>
+</body>
+</html>

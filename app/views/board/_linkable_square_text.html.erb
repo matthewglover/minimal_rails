@@ -1,0 +1,6 @@
+<% 
+(number,) = square_data
+default_params = game_state.slice(:player_x_type, :player_o_type, :moves)
+query_params = default_params.merge({move: number}).to_query
+%>
+<%= link_to number, "?#{query_params}" %>

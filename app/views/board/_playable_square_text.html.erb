@@ -1,0 +1,7 @@
+<% 
+(number, value) = square_data
+square_type = value == :empty ? 'linkable' : 'static'
+locals = { square_data: square_data, game_state: game_state }
+%>
+<%= render partial: "board/#{square_type}_square_text", locals: locals %>
+
