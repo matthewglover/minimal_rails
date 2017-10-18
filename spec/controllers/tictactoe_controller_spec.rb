@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'GET #game', type: :request do
   context 'New Human vs Human game' do
     before(:each) do
-      get('/tictactoe/game?player_x_type=human&player_o_type=human')
+      get('/tictactoe/game?board_size=3&player_x_type=human&player_o_type=human')
     end
 
     it 'has 200 status' do
@@ -34,6 +34,7 @@ RSpec.describe 'GET #game', type: :request do
   context 'Human vs Human after two moves' do
     before(:each) do
       params = {
+        board_size: 3,
         player_x_type: :human,
         player_o_type: :human,
         moves: [1, 2],

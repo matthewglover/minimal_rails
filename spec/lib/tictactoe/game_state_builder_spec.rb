@@ -10,18 +10,18 @@ RSpec.describe Tictactoe::GameStateBuilder do
     computer_player
   end
   let(:game) { MattsTictactoeCore::Game.new(
-    player_x_type: :human, player_o_type: :computer, board: board, computer_player: computer_player) }
+    board_size: 3, player_x_type: :human, player_o_type: :computer, board: board, computer_player: computer_player) }
 
-  context 'New Human vs Computer  game' do
+  context 'New Human vs Computer game (3x3)' do
     let(:board) { MattsTictactoeCore::Board.new([]) }
 
     it 'creates game state for current game' do
       game_state = Tictactoe::GameStateBuilder.build(
         controller: controller, action: action, game: game)
       expect(game_state).to eq({
-        path: nil,
         controller: controller,
         action: action,
+        board_size: 3,
         player_x_type: game.player_x_type,
         player_o_type: game.player_o_type,
         moves: game.board.moves,
@@ -30,16 +30,16 @@ RSpec.describe Tictactoe::GameStateBuilder do
     end
   end
 
-  context 'New Human vs Computer  game' do
-    let(:board) { MattsTictactoeCore::Board.new([1]) }
+  context 'New Human vs Computer game (4x4)' do
+    let(:board) { MattsTictactoeCore::Board.new([1], size: 4) }
 
     it 'creates game state for current game' do
       game_state = Tictactoe::GameStateBuilder.build(
         controller: controller, action: action, game: game)
       expect(game_state).to eq({
-        path: nil,
         controller: controller,
         action: action,
+        board_size: 4,
         player_x_type: game.player_x_type,
         player_o_type: game.player_o_type,
         moves: game.board.moves,
@@ -48,16 +48,16 @@ RSpec.describe Tictactoe::GameStateBuilder do
     end
   end
 
-  context 'Completed game' do
+  context 'Completed game (3x3)' do
     let(:board) { MattsTictactoeCore::Board.new([1, 4, 2, 5, 3]) }
 
     it 'creates game state for current game' do
       game_state = Tictactoe::GameStateBuilder.build(
         controller: controller, action: action, game: game)
       expect(game_state).to eq({
-        path: nil,
         controller: controller,
         action: action,
+        board_size: 3,
         player_x_type: game.player_x_type,
         player_o_type: game.player_o_type,
         moves: game.board.moves,

@@ -6,8 +6,7 @@ module Tictactoe
   class GameOptionsBuilder
     def initialize(params)
       @parsed_params = Tictactoe::ParamsParser.parse(params)
-      @game = Tictactoe::GameBuilder.build(@parsed_params.slice(
-        :player_x_type, :player_o_type, :move, :moves))
+      @game = Tictactoe::GameBuilder.build(game_builder_params)
     end
 
     def build
@@ -22,6 +21,10 @@ module Tictactoe
     end
 
     private
+
+    def game_builder_params
+      @parsed_params.slice(:board_size, :player_x_type, :player_o_type, :move, :moves)
+    end
 
     def board_data
       board.rows_as_square_numbers_and_statuses

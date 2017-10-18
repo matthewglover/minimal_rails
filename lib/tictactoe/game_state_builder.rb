@@ -1,9 +1,9 @@
 module Tictactoe
   class GameStateBuilder
-    def self.build(path: nil, action: nil, controller: nil, game:)
-      { path: path,
-        action: action,
+    def self.build(action: nil, controller: nil, game:)
+      { action: action,
         controller: controller,
+        board_size: game.board.size,
         player_x_type: game.player_x_type,
         player_o_type: game.player_o_type,
         moves: game.board.moves,
