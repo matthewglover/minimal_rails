@@ -1,5 +1,5 @@
 <% locals = { game_state: game_state, type: type }  %>
-<div class="board">
+<div class="board board_size_<%= game_state[:board_size] %>">
   <% board_data.each do |row_data| %>
     <%= render(partial: 'board/row', locals: locals.merge({ row_data: row_data })) %>
   <% end %>
