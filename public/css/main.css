@@ -18,6 +18,36 @@ a {
   align-items: center;
 }
 
+.form_layout {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  justify-content: space-between;
+}
+
+.form_item {
+  display: flex;
+  flex-direction: row;
+}
+
+.form_item button {
+  width: 100%;
+}
+
+.item_label {
+  margin-right: 20px;
+  width: 100px;
+}
+
+.item_input {
+  width: 100px;
+}
+
+.item_input select {
+  width: 100%;
+}
+
 .board {
   display: flex;
   flex-direction: column;
@@ -36,15 +66,26 @@ a {
   align-items: center;
   cursor: pointer;
 }
-
-#square_2, #square_5, #square_8 {
+  
+.board_size_3 #square_2, .board_size_3 #square_5, .board_size_3 #square_8 {
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
 
-#square_4, #square_5, #square_6 {
+.board_size_3 #square_4, .board_size_3 #square_5, .board_size_3 #square_6,
+.board_size_4 #square_5, .board_size_4 #square_6, .board_size_4 #square_7, .board_size_4 #square_8 {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+}
+
+.board_size_4 #square_9, .board_size_4 #square_10, .board_size_4 #square_11, .board_size_4 #square_12 {
+  border-bottom: 1px solid black;
+}
+
+.board_size_4 #square_2, .board_size_4 #square_3, .board_size_4 #square_6, .board_size_4 #square_7, 
+.board_size_4 #square_10, .board_size_4 #square_11, .board_size_4 #square_14, .board_size_4 #square_15,
+.board_size_4 #square_4, .board_size_4 #square_8, .board_size_4 #square_12, .board_size_4 #square_16 {
+  border-left: 1px solid black;
 }
 
 .result_message {

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Rendering a square partial', type: :view do
   let(:game_state) do
     {
-      path: 'simple/index',
+      board_size: 3,
       player_x_type: :human,
       player_o_type: :human,
       moves: [1, 2]
@@ -83,6 +83,7 @@ RSpec.describe 'Rendering a square partial', type: :view do
       uri = URI(link_string)
       params = Rack::Utils.parse_nested_query(uri.query)
       expect(params).to eq({
+        'board_size' => game_state[:board_size].to_s,
         'player_o_type' => game_state[:player_o_type].to_s,
         'player_x_type' => game_state[:player_x_type].to_s,
         'moves' => game_state[:moves].map(&:to_s),

@@ -5,8 +5,9 @@ module Tictactoe
         action: params['action'],
         player_x_type: params['player_x_type'], 
         player_o_type: params['player_o_type'],
-        moves: params['moves'] || [],
-        move: params['move'] || nil }
+        moves: params.fetch('moves', []),
+        move: params.fetch('move', nil),
+        board_size: params['board_size'].to_i }
     end
   end
 end
